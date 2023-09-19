@@ -21,6 +21,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning={true}>
         <ToastProvider/>
+       
         <ModalProvider />
         <body className={inter.className}>{children}</body>
       </html>
