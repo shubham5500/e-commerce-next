@@ -19,11 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning={true}>
-        <ToastProvider/>
-       
-        <ModalProvider />
-        <body className={inter.className}>{children}</body>
+      <html lang="en">
+        <body className={inter.className}>
+          <ToastProvider />
+
+          <ModalProvider />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
