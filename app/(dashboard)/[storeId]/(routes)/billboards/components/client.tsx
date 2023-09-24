@@ -9,9 +9,11 @@ import { Billboard } from "@prisma/client";
 import { Plus } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
+import { BillboardColumn, columns } from "./columns";
+import { DataTable } from "@/components/ui/data-table";
 
 type Props = {
-  billboards: Billboard[];
+  billboards: BillboardColumn[];
 };
 
 const BillboardClient = ({billboards = []}: Props) => {
@@ -21,7 +23,7 @@ const BillboardClient = ({billboards = []}: Props) => {
     <>
       <div className="flex item-center justify-between">
         <Heading
-          title="Billboard (0)"
+          title={`Billboard (${billboards.length})`}
           description="Manage billboard for your store"
         />
         <Button
@@ -32,9 +34,7 @@ const BillboardClient = ({billboards = []}: Props) => {
         </Button>
       </div>
       <Separator />
-      {billboards.map(billB => {
-        return <div>{billB.label} {billB.id}</div>
-      })}
+      <DataTable columns={columns} data={billboards} searchKey="label"/>
     </>
   );
 };
