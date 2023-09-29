@@ -15,3 +15,9 @@ export function redirectUnauthorized() {
   }
   return userId;
 }
+
+export const formatter = new Intl.NumberFormat("en-IN", {
+  style: 'currency',
+  currency: 'INR',
+  maximumFractionDigits: 2,
+})
